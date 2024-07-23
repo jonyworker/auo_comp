@@ -3,21 +3,20 @@ import HelloWorld from "./components/HelloWorld.vue";
 import ACol from "./components/layout/Col.vue";
 import ARow from "./components/layout/Row.vue";
 import AContainer from "./components/layout/Container.vue";
+import AIcon from "./components/atom/BaseIcon.vue";
 </script>
 
-<template></template>
+<template>
+    <a-icon name="academi" size="20"></a-icon>
+
+    <div class="icon">
+        <a-icon name="finger-print"></a-icon>
+    </div>
+</template>
 
 <style scoped>
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
+.icon {
+    width: 50px;
+    height: 50px;
 }
 </style>

@@ -14,6 +14,10 @@ const props = defineProps({
         //         value
         //     ),
     },
+    color: {
+        type: String,
+        default: "#000",
+    },
 });
 
 const iconComponent = defineAsyncComponent(() =>
@@ -22,7 +26,12 @@ const iconComponent = defineAsyncComponent(() =>
 </script>
 
 <template>
-    <component :is="iconComponent" :width="props.size" :height="props.size" />
+    <component
+        :is="iconComponent"
+        :width="props.size"
+        :height="props.size"
+        :stroke="props.color"
+    />
 </template>
 
 <style lang="scss" scoped></style>

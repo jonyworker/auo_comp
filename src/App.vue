@@ -5,9 +5,14 @@ import AContainer from "./components/layout/Container.vue";
 import AIcon from "@/components/atom/BaseIcon.vue";
 import ADivider from "@/components/layout/Divider.vue";
 import AButton from "@/components/atom/Button.vue";
+import AAvatar from "@/components/atom/Avatar.vue";
 </script>
 
 <template>
+    <a-avatar shape="circle" type="image" size="sm"></a-avatar>
+    <a-avatar shape="circle" type="label" size="sm"></a-avatar>
+    <a-avatar shape="circle" type="icon" size="sm"></a-avatar>
+    <a-avatar shape="circle" type="more" size="sm"></a-avatar>
     <a-icon name="academi" size="20"></a-icon>
     <a-container size="sm" class="border-1">
         <p>

@@ -8,7 +8,7 @@ const props = defineProps({
     color: {
         type: String,
         default: "#334155",
-        TODO: 顏色確認後修改,
+        //TODO: 顏色確認後修改
         // validator: (value) =>
         //     ["primary", "secondary", "success", "danger", "warning"].includes(
         //         value

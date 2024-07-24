@@ -1,10 +1,10 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
 import ACol from "./components/layout/Col.vue";
 import ARow from "./components/layout/Row.vue";
 import AContainer from "./components/layout/Container.vue";
 import AIcon from "@/components/atom/BaseIcon.vue";
 import ADivider from "@/components/layout/Divider.vue";
+import AButton from "@/components/atom/Button.vue";
 </script>
 
 <template>
@@ -16,6 +16,9 @@ import ADivider from "@/components/layout/Divider.vue";
             aliquid aspernatur in blanditiis maiores. Beatae itaque voluptatum
             dignissimos, molestiae quidem ipsa veritatis?
         </p>
+        <a-button prependIcon="academi" type="filled" themeColor="error"
+            >button</a-button
+        >
     </a-container>
     <div class="d-flex flex-column" style="border: 1px solid red">
         <p class="m-0">
@@ -38,14 +41,8 @@ import ADivider from "@/components/layout/Divider.vue";
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
     </div>
-    <div class="icon">
-        <a-icon name="finger-print" size="50" vertical></a-icon>
-    </div>
+
+    <a-icon name="finger-print" size="500"></a-icon>
 </template>
 
-<style scoped>
-.icon {
-    width: 50px;
-    height: 50px;
-}
-</style>
+<style scoped></style>

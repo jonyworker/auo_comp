@@ -534,39 +534,40 @@
   cursor: pointer;
 }
 
-/*!
- * Bootstrap Grid v5.0.2 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
+.button-custom {
+  background-color: rgba(11, 192, 134, 0.6666666667);
+  color: #ffffff;
+  border-color: #f8f9fa;
+}
+.button-custom:hover {
+  background-color: hsla(161, 89%, 40%, 0.667);
+  color: #ffffff;
+  border-color: #f8f9fa;
+}
+.button-custom:active {
+  background-color: rgba(11, 192, 134, 0.6666666667);
+  color: #ffffff;
+  border-color: #f8f9fa;
 }
 
-@media (min-width: 576px) {
-  .container-sm,
-  .container {
-    max-width: 540px;
-  }
+.input-custom {
+  border-color: #0bc086;
 }
-@media (min-width: 768px) {
-  .container-md,
-  .container-sm,
-  .container {
-    max-width: 720px;
-  }
+
+.textarea-custom .textarea-label {
+  color: #fcc;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Noto Sans", Arial, sans-serif;
+}/*# sourceMappingURL=globals.css.map */}
 @media (min-width: 992px) {
   .container-lg,
   .container-md,

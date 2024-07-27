@@ -36,17 +36,10 @@ const initialName = (fullName) => {
 </script>
 
 <template>
-    <ul>
-        <li v-for="(avatar, index) in dataCopy">
-            {{ initialName(avatar.name) }}
-        </li>
-    </ul>
-
     <div class="avatar-group">
         <!-- 當有圖片時顯示 -->
         <a-avatar
             v-for="(avatar, index) in dataCopy"
-            shape="circle"
             :type="
                 Boolean(avatar.imgUrl)
                     ? 'image'
@@ -56,15 +49,16 @@ const initialName = (fullName) => {
             "
             :initialName="Boolean(avatar.imgUrl) ? null : avatar.name"
             :imgUrl="avatar.imgUrl"
+            rounded
         >
         </a-avatar>
 
         <!-- 當有數量超過 limit 時顯視 -->
         <a-avatar
             v-if="moreLabel > 0 && moreLabel < 100"
-            shape="circle"
             type="more"
             :moreLabel="moreLabel"
+            rounded
         ></a-avatar>
     </div>
 </template>

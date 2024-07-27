@@ -7,33 +7,35 @@ const avatars = [
     {
         name: "jony wu",
         imgUrl: "",
-        status: "busy",
     },
     {
         name: "mike cheng",
         imgUrl: "src/assets/fakeImg/avatar_02.jpg",
-        status: "busy",
     },
     {
         name: "ray Li",
         imgUrl: "src/assets/fakeImg/avatar_03.jpg",
-        status: "busy",
     },
     {
         name: "dick Huang",
         imgUrl: "src/assets/fakeImg/avatar_04.jpg",
-        status: "busy",
     },
 ];
 </script>
 
 <template>
-    <a-avatarGroup :data="avatars" limit="2"></a-avatarGroup>
+    <a-avatarGroup :data="avatars" limit="10"></a-avatarGroup>
     <hr />
-    <a-avatar shape="circle" type="image" size="sm"></a-avatar>
-    <a-avatar shape="circle" type="initial" size="sm"></a-avatar>
-    <a-avatar shape="circle" type="icon" size="sm"></a-avatar>
-    <a-avatar shape="circle" type="more" size="sm" limit="20"></a-avatar>
+    <a-avatar type="image" size="sm" rounded></a-avatar>
+    <a-avatar
+        type="initial"
+        size="sm"
+        status="busy"
+        status-position="br"
+        rounded
+    ></a-avatar>
+    <a-avatar type="icon" size="sm" rounded></a-avatar>
+    <a-avatar type="more" size="sm" rounded></a-avatar>
     <a-icon name="finger-print" size="50"></a-icon>
 </template>
 

@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { cva } from "class-variance-authority";
 import AIcon from "@/components/misc/BaseIcon.vue";
+import AAvatarStatus from "@/components/misc/AvatarStatus.vue";
 import avatarImg_01 from "@/assets/fakeImg/avatar_01.jpg";
 import avatarImg_02 from "@/assets/fakeImg/avatar_02.jpg";
 import avatarImg_03 from "@/assets/fakeImg/avatar_03.jpg";
@@ -13,16 +14,24 @@ const props = defineProps({
         default: "sm",
         validator: (value) => ["sm", "md", "lg"].includes(value),
     },
-    shape: {
-        type: String,
-        default: "default",
-        validator: (value) => ["default", "circle"].includes(value),
+    rounded: {
+        type: Boolean,
     },
     type: {
         type: String,
         default: "image",
         validator: (value) =>
             ["image", "initial", "icon", "more"].includes(value),
+    },
+    status: {
+        type: String,
+        validator: (value) =>
+            ["online", "busy", "away", "offline"].includes(value),
+    },
+    "status-position": {
+        type: String,
+        default: "tl",
+        validator: (value) => ["tl", "tr", "bl", "br"].includes(value),
     },
     imgUrl: {
         type: String,
@@ -47,9 +56,8 @@ const avatarCVAClass = computed(() => {
                 md: "md",
                 lg: "lg",
             },
-            shape: {
-                default: "",
-                circle: "round-full",
+            rounded: {
+                true: "round-full",
             },
             type: {
                 image: "",
@@ -58,18 +66,10 @@ const avatarCVAClass = computed(() => {
                 more: "more",
             },
         },
-        compoundVariants: [
-            {
-                // color: "red",
-                // type: "label",
-                // class: "compoundVariants classes here",
-            },
-        ],
     })({
-        //這裡設定 variants名稱接收 props的值
         size: props.size,
-        shape: props.shape,
         type: props.type,
+        rounded: props.rounded,
     });
 });
 const initialName = (fullName) => {
@@ -83,28 +83,71 @@ const initialName = (fullName) => {
 
 <template>
     <!-- 使用者（圖片）-->
-    <div :class="avatarCVAClass" v-if="type === 'image'">
-        <img class="" :src="imgUrl" alt="" />
-    </div>
-    <!-- 更多使用者 -->
-    <a
-        :class="avatarCVAClass"
-        v-if="type === 'more'"
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        >{{ `+${props.moreLabel}` }}</a
-    >
-    <div :class="avatarCVAClass" v-if="type === 'initial'">
-        {{ initialName(props.initialName) }}
+    <div class="avatar-container" v-if="type === 'image'">
+        <div :class="avatarCVAClass">
+            <img :src="imgUrl" alt="" />
+        </div>
+        <a-avatarStatus
+            v-if="props.status"
+            :position="props.statusPosition"
+            :status="props.status"
+            :rounded="props.rounded"
+        ></a-avatarStatus>
     </div>
 
-    <div :class="avatarCVAClass" v-if="type === 'icon'">
-        <a-icon name="academi" size="18" color="#999"></a-icon>
+    <!-- 使用者頭文字 -->
+    <div class="avatar-container" v-if="type === 'initial'">
+        <div :class="avatarCVAClass">
+            {{ initialName(props.initialName) }}
+        </div>
+        <a-avatarStatus
+            v-if="props.status"
+            :position="props.statusPosition"
+            :status="props.status"
+            :rounded="props.rounded"
+        ></a-avatarStatus>
+    </div>
+
+    <!-- icon -->
+    <div class="avatar-container" v-if="type === 'icon'">
+        <div :class="avatarCVAClass">
+            <a-icon name="academi" size="18" color="#999"></a-icon>
+        </div>
+        <a-avatarStatus
+            v-if="props.status"
+            :position="props.statusPosition"
+            :status="props.status"
+            :rounded="props.rounded"
+        ></a-avatarStatus>
+    </div>
+
+    <!-- 查看更多使用者 -->
+    <div class="avatar-container">
+        <a
+            :class="avatarCVAClass"
+            v-if="type === 'more'"
+            href="#"
+            target="_blank"
+            rel=""
+            >{{ `+${props.moreLabel}` }}</a
+        >
     </div>
 </template>
 
 <style scoped>
+.avatar-container {
+    position: relative;
+    width: fit-content;
+}
+.avatar-group .avatar-container:not(:nth-child(1)) {
+    margin-left: -4px;
+}
+.avatar-group .avatar-container:not(:nth-child(1)) .avatar {
+    border-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+}
+
 .avatar {
     display: flex;
     align-items: center;
@@ -112,6 +155,7 @@ const initialName = (fullName) => {
     border-radius: 0.25rem;
     background-color: #d9d9d9;
     overflow: hidden;
+    position: relative;
 }
 .avatar.more {
     text-decoration: none;
@@ -132,12 +176,6 @@ const initialName = (fullName) => {
     width: 100%;
     vertical-align: middle;
     object-fit: cover;
-}
-.avatar-group .avatar:not(:nth-child(1)) {
-    border-width: 2px;
-    border-color: #fff;
-    border-style: solid;
-    margin-left: -8px;
 }
 
 .round-full {

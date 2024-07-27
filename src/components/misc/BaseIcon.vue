@@ -30,7 +30,7 @@ const iconComponent = defineAsyncComponent(() =>
         :is="iconComponent"
         :width="props.size"
         :height="props.size"
-        :stroke="props.color"
+        :fill="props.color"
     />
 </template>
 

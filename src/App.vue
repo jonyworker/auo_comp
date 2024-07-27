@@ -58,7 +58,7 @@ const breadcrumbData = [
     ></a-avatar>
     <a-avatar type="icon" size="sm" rounded></a-avatar>
     <a-avatar type="more" size="sm" rounded></a-avatar>
-    <a-icon name="finger-print" size="50"></a-icon>
+    <a-icon name="MdiArrowBottomLeftThinCircleOutline" size="50"></a-icon>
 </template>
 
 <style scoped></style>

@@ -9,14 +9,10 @@ const props = defineProps({
         type: String,
         required: false,
         default: 24,
-        // validator: (value) =>
-        //     ["primary", "secondary", "success", "danger", "warning"].includes(
-        //         value
-        //     ),
     },
     color: {
         type: String,
-        default: "#000",
+        default: "red",
     },
 });
 
@@ -30,7 +26,7 @@ const iconComponent = defineAsyncComponent(() =>
         :is="iconComponent"
         :width="props.size"
         :height="props.size"
-        :fill="props.color"
+        :style="{ color: props.color }"
     />
 </template>
 

@@ -140,7 +140,7 @@ const initialName = (fullName) => {
     width: fit-content;
 }
 .avatar-group .avatar-container:not(:nth-child(1)) {
-    margin-left: -4px;
+    margin-left: -8px;
 }
 .avatar-group .avatar-container:not(:nth-child(1)) .avatar {
     border-width: 2px;

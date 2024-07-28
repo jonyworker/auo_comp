@@ -16,7 +16,7 @@ const props = defineProps({
 });
 
 const avatarStatusCVAClass = computed(() => {
-    return cva("avatar-container avatar-status", {
+    return cva("avatar-status", {
         variants: {
             status: {
                 online: "status-online",
@@ -86,26 +86,27 @@ const avatarStatusCVAClass = computed(() => {
 <style scoped>
 .avatar-container .avatar-status {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 9999px;
     border: 2px solid #1f2937;
+    /* box-sizing: border-box; */
 }
 .avatar-status.status-position-tl {
-    top: -5px;
-    left: -5px;
+    top: -6px;
+    left: -6px;
 }
 .avatar-status.status-position-tr {
-    top: -5px;
-    right: -5px;
+    top: -6px;
+    right: -6px;
 }
 .avatar-status.status-position-br {
-    bottom: -5px;
-    right: -5px;
+    bottom: -6px;
+    right: -6px;
 }
 .avatar-status.status-position-bl {
-    bottom: -5px;
-    left: -5px;
+    bottom: -6px;
+    left: -6px;
 }
 .avatar-status.status-position-tl-rounded {
     top: 0;
@@ -123,7 +124,7 @@ const avatarStatusCVAClass = computed(() => {
     bottom: 0;
     left: 0;
 }
-.avatar-status {
+.avatar-status.status-online {
     /* green */
     background-color: #31c48d;
 }

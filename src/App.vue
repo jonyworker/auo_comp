@@ -44,9 +44,10 @@ const breadcrumbData = [
 </script>
 
 <template>
+    <h1>123</h1>
     <a-breadcrumb :data="breadcrumbData"></a-breadcrumb>
     <a-breadcrumbItem icon="home">Home</a-breadcrumbItem>
-    <a-avatarGroup :data="avatars" limit="10"></a-avatarGroup>
+    <a-avatarGroup :data="avatars" limit="3"></a-avatarGroup>
     <hr />
     <a-avatar type="image" size="sm" rounded></a-avatar>
     <a-avatar
@@ -58,7 +59,7 @@ const breadcrumbData = [
     ></a-avatar>
     <a-avatar type="icon" size="sm" rounded></a-avatar>
     <a-avatar type="more" size="sm" rounded></a-avatar>
-    <a-icon name="MdiArrowBottomLeftThinCircleOutline" size="50"></a-icon>
+    <a-icon name="finger-print" size="50"></a-icon>
 </template>
 
 <style scoped></style>
